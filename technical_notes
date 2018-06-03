@@ -1,0 +1,6 @@
+Python:
+  - which version?  3.7 just came out, 3.5+ should be sufficient
+  - must check all api compatibility
+  - virtual env
+
+

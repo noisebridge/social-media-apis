@@ -1,0 +1,74 @@
+=============
+Possible APIs
+=============
+
+just listing them for now
+
+- Twitter
+- Facebook
+- Instagram
+- Trello
+- Patreon
+- Meet-up
+
+
+Thoughts
+________
+
+- Start a folder (apis?) with samples of basic functional code (e.g. like the meet-up I pushed to NB)
+- Determine which functions needed across all APIs
+    - Getting and revoking API Tokens
+    - Integrating API token management with access control scheme
+    - Basic API
+      - connections / sessoins
+      - basic queries
+      - what will be posted
+      - how to post it
+      - partitioning and permissioning each function to suit noisebridge access controls
+
+Common
+______
+- Rate Limiting local
+- API specific rate limits
+
+
+Twitter
+_______
+
+dependencies
+ - Requests
+ - OAuth
+
+github:
+git://github.com/bear/python-twitter.git
+
+pip:
+pip install python-twitter
+
+python bindings
+    message = "this is a tweet"
+    api = twitter.Api(consumer_key=consumer_key, consumer_secret=consumer_secret,
+                      access_token_key=access_key, access_token_secret=access_secret,
+                      input_encoding=encoding)
+    api.PostUpdate(message)
+
+    api.DestroyStatus(status_id)
+    api.CheckRateLimit(url)
+    api.CreateList(name="name_for_list", [mode="public"|"private",] [description=str])
+    api.CreateListMember(...) # add member to list
+    api.CreateSubscription(...) # subscribes credentials to list
+    api.DestroyList(...)
+    api.DestroyListMember"(...)
+    api.DestroySubscription(...)
+    api.GetDirectMessages()?  Send, destroy?
+    get friends?  followers?
+    api.update[static like image, banner, profile, etc]
+    api.UploadMediaChunked
+    api.UploadMediaSimple
+
+  models
+    models.Hashtag
+    models.List
+    models.Media
+    models.Status
+
